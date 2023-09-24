@@ -3,20 +3,33 @@ package ru.netology.radio;
 public class Radio {
     private int currentRadioStationNumber;
     private int currentVolume;
+    private int sumOfRadioStations = 10;
+
+    public Radio() {
+
+    }
+
+    public Radio(int sumOfRadioStations) {
+        this.sumOfRadioStations = sumOfRadioStations - 1;
+    }
+
+    int getSumOfRadioStations() {
+        return sumOfRadioStations;
+    }
 
     int getCurrentRadioStationNumber() {  // геттер номера текущей радиостанции
         return currentRadioStationNumber;
     } // геттер номера текущей радиостанции
 
     void setCurrentRadioStationNumber(int newRadioStationNumber) { // сеттер номера текущей радиостанции
-        if (newRadioStationNumber < 0 || newRadioStationNumber > 9) {
+        if (newRadioStationNumber < 0 || newRadioStationNumber > sumOfRadioStations) {
             return;
         }
         currentRadioStationNumber = newRadioStationNumber;
     }
 
     void nextCurrentRadioStationNumber() { // кнопка NEXT
-        if (currentRadioStationNumber == 9) {
+        if (currentRadioStationNumber == sumOfRadioStations - 1) {
             currentRadioStationNumber = 0;
         } else {
             currentRadioStationNumber++;
@@ -25,7 +38,7 @@ public class Radio {
 
     void prevCurrentRadioStationNumber() { // кнопка PREV
         if (currentRadioStationNumber == 0) {
-            currentRadioStationNumber = 9;
+            currentRadioStationNumber = sumOfRadioStations - 1;
         } else {
             currentRadioStationNumber--;
         }

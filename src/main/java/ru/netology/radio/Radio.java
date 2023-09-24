@@ -1,25 +1,22 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentRadioStationNumber;
     private int currentVolume;
     private int sumOfRadioStations = 10;
 
-    public Radio() {
-
-    }
 
     public Radio(int sumOfRadioStations) {
         this.sumOfRadioStations = sumOfRadioStations - 1;
     }
 
-    int getSumOfRadioStations() {
-        return sumOfRadioStations;
-    }
-
-    int getCurrentRadioStationNumber() {  // геттер номера текущей радиостанции
-        return currentRadioStationNumber;
-    } // геттер номера текущей радиостанции
 
     void setCurrentRadioStationNumber(int newRadioStationNumber) { // сеттер номера текущей радиостанции
         if (newRadioStationNumber < 0 || newRadioStationNumber > sumOfRadioStations) {
@@ -42,10 +39,6 @@ public class Radio {
         } else {
             currentRadioStationNumber--;
         }
-    }
-
-    int getCurrentVolume() { // геттер громкости звука
-        return currentVolume;
     }
 
     void setCurrentVolume(int newCurrentVolume) { // сеттер громкости, нужен только для 100% покрытия
